@@ -28,7 +28,8 @@ typedef struct md5 MD5_CTX;
 
 #define PROP_LINE_LEN (PROPERTY_KEY_MAX+1+PROPERTY_VALUE_MAX+1+1)
 
-extern int sockfd;
+extern int adb_ifd;
+extern int adb_ofd;
 extern TAR* tar;
 extern gzFile gzf;
 
@@ -56,7 +57,7 @@ extern void part_set(partspec* part);
 
 extern int update_progress(uint64_t off);
 
-extern int create_tar(const char* compress, const char* mode);
+extern int create_tar(int fd, const char* compress, const char* mode);
 
 extern int do_backup(int argc, char** argv);
 extern int do_restore(int argc, char** argv);
