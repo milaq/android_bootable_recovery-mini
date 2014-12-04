@@ -31,7 +31,6 @@ static const char* ITEMS[] = { "Reboot system now",
                                "Apply update",
                                "Wipe data/factory reset",
                                "Wipe cache partition",
-                               "Wipe media",
                                NULL };
 
 class DefaultUI : public ScreenRecoveryUI {
@@ -50,10 +49,7 @@ class DefaultDevice : public Device {
   public:
     DefaultDevice() :
         ui(new DefaultUI) {
-        // Remove "wipe media" option for non-datamedia devices
-        if (!is_data_media()) {
-            ITEMS[4] = NULL;
-        }
+        // NOTHING
     }
 
     RecoveryUI* GetUI() { return ui; }
@@ -105,7 +101,6 @@ class DefaultDevice : public Device {
           case 1: return APPLY_UPDATE;
           case 2: return WIPE_DATA;
           case 3: return WIPE_CACHE;
-          case 4: return WIPE_MEDIA;
 	  default: return NO_ACTION;
         }
     }
