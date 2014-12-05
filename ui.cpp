@@ -299,6 +299,7 @@ int RecoveryUI::input_callback(int fd, short revents, void* data)
     }
 
     switch (ev.type) {
+#ifdef TOUCH_ENABLE
     case EV_SYN:
         self->process_syn(dev, ev.code, ev.value);
         break;
@@ -308,6 +309,7 @@ int RecoveryUI::input_callback(int fd, short revents, void* data)
     case EV_REL:
         self->process_rel(dev, ev.code, ev.value);
         break;
+#endif
     case EV_KEY:
         self->process_key(dev, ev.code, ev.value);
         break;

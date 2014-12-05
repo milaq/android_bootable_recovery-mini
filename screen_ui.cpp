@@ -278,7 +278,7 @@ void ScreenRecoveryUI::draw_dialog()
             gr_text(2, y, text[row], 0);
             y += cy+2;
         }
-        gr_set_font("menu");
+        gr_set_font("log");
     }
 
     if (dialog_icon == ERROR) {
@@ -340,7 +340,7 @@ void ScreenRecoveryUI::draw_screen_locked()
                 --row;
                 if (row < 0) row = log_text_rows-1;
             }
-            gr_set_font("menu");
+            gr_set_font("log");
             return;
         }
 
@@ -453,7 +453,7 @@ void ScreenRecoveryUI::Init()
 
     gr_set_font("log");
     gr_font_size(&log_char_width, &log_char_height);
-    gr_set_font("menu");
+    gr_set_font("log");
     gr_font_size(&char_width, &char_height);
 
     log_text_rows = gr_fb_height() / log_char_height;
