@@ -36,9 +36,6 @@ static const char* ITEMS[] = { "Reboot system now",
 class DefaultUI : public ScreenRecoveryUI {
   public:
     virtual KeyAction CheckKey(int key) {
-        if (key == KEY_HOME) {
-            return TOGGLE;
-        }
         return ENQUEUE;
     }
 };
